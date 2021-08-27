@@ -23,26 +23,49 @@
 //   }
 //   return -1
 // }
+
+// 解决方案二： 寻找左侧边界的二分搜索
+// 采用都是闭合区间来实现[left, right]
+// var search = function (nums, target) {
+//   let left = 0;
+//   let right = nums.length - 1;
+//   while(left <= right) { // right = nums.lenght - 1 && left <= right 确定闭合区间
+//     let mid = Math.floor(left + (right - left) / 2);
+//     let cur = nums[mid];
+//     if (cur === target) {
+//       right = mid - 1;
+//     } else if (cur > target) {
+//       right = mid - 1;
+//     } else if (cur < target) {
+//       left = mid + 1;
+//     }
+//   }
+//   if (left >= nums.length || nums[left] !== target) return -1;
+//   return left;
+// }
+// console.log(search([-1,0,3,5,9,12], 2));
+
+// 解决方案三： 寻找右侧边界的二分搜索
+// 都采用闭合区间来实现[left, right]
 var search = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
-  while(left <= right) {
+  while (left <= right) {
     let mid = Math.floor(left + (right - left) / 2);
-    let current = nums[mid];
-    if (current > target) {
+    let cur = nums[mid];
+    if (cur === target) {
+      left = mid + 1;
+    } else if (cur > target) {
       right = mid - 1;
-    } else if (current === target) {
-      return mid;
-    } else if (current < target) {
-      left = mid + 1
+    } else if (cur < target) {
+      left = mid + 1;
     }
   }
-  return -1
+  if (left > nums.length || nums[right] !== target) return -1;
+  return right
 }
-// [0, ,,,, 6]
-console.log(search([1,2,2,2,2,3], 2));
-console.log(search([0,3,5,9,12], 9));
-console.log(search([0,3,5,9,12], 99));
+console.log(search([-1,0,3,5,9,12], 2));
+console.log(search([1,2,2,2,3], 2));
 // 二分查找
 // 从一堆有序数组里面取中间的值，与target相比较
 // 找到target属于左边还是右边，然后递归查找
