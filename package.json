@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "jscodeshift": "^0.13.0",
+    "umi": "^3.5.19"
+  }
+}
