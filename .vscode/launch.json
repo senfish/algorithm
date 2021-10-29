@@ -11,7 +11,9 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/数据结构/435.无重叠区间.js"
+      // "program": "${workspaceFolder}/二分查找/704.二分查找.js"
+      "program": "${workspaceFolder}/test.js"
+
     }
   ]
 }
