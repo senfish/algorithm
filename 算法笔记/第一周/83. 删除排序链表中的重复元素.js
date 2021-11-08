@@ -50,9 +50,33 @@
 
 // 方法二： 利用快慢指针
 
-var deleteDuplicates = function(head) {
-  
+var deleteDuplicates = function (head) {
+  if (head == null) {
+    return null;
+  }
+  // let slow = head;
+  // let fast = head.next;
+  // while(fast && fast.next) {
+  //   if(slow.val !== fast.val) {
+  //     slow = slow.next;
+  //   } else {
+  //     slow.next = fast.next;
+  //   }
+  //   fast = fast.next;
+  // }
+  let slow = head;
+  let fast = head;
+  while(fast) {
+    if(fast.val !== slow.val) {
+      slow.next = fast; // 删除相同元素
+      slow = fast; // 移动慢指针
+    }
+    fast = fast.next; // 移动快指针
+  }
+  slow.next = null; // 处理边界，最后两个节点相同的情况
+  return head;
 };
+
 let listNode = {
   val: 1,
   next: {
@@ -60,7 +84,8 @@ let listNode = {
     next: {
       val: 2,
       next: {
-        val: 3,
+        val: 2,
+        // next: null
         next: {
           val: 3,
           next: null
