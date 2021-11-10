@@ -64,6 +64,7 @@ var deleteDuplicates = function (head) {
   //   }
   //   fast = fast.next;
   // }
+  // return head;
   let slow = head;
   let fast = head;
   while(fast) {

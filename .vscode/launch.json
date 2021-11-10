@@ -12,7 +12,7 @@
         "<node_internals>/**"
       ],
       // "program": "${workspaceFolder}/二分查找/704.二分查找.js"
-      "program": "${workspaceFolder}/算法笔记/第一周/83. 删除排序链表中的重复元素.js"
+      "program": "${workspaceFolder}/算法笔记/第一周/92. 反转链表 II.js"
 
     }
   ]
