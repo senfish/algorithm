@@ -12,8 +12,7 @@
         "<node_internals>/**"
       ],
       // "program": "${workspaceFolder}/二分查找/704.二分查找.js"
-      "program": "${workspaceFolder}/算法笔记/第一周/92. 反转链表 II.js"
-
+      "program": "${workspaceFolder}/算法笔记/第一周/61. 旋转链表.js"
     }
   ]
 }
