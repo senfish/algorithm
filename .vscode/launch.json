@@ -12,7 +12,8 @@
         "<node_internals>/**"
       ],
       // "program": "${workspaceFolder}/二分查找/704.二分查找.js"
-      "program": "${workspaceFolder}/算法笔记/第一周/19. 删除链表的倒数第 N 个结点.js"
+      // "program": "${workspaceFolder}/算法笔记/第一周/19. 删除链表的倒数第 N 个结点.js"
+      "program": "${workspaceFolder}/index.js"
     }
   ]
 }

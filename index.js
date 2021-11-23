@@ -1,75 +1,79 @@
-// // [0,0,0,1,1,1,2,2,3,3,4]
+// 输入
+var arr = [
+  { id: '1'},{id: '1-1'},{id: '1-2' },{id: '1-3'},{id: '1-2-1'},{id: '1-2-1-1' },
+  { id: '3-1' },{ id: '4-2-1' }, {  id: '2' }, { id: '2-1' }, { id: '2-2-1' }
+]
 
-
-// // 定义两个快慢指针，两个指针同时只想第一位
-// // 比较nums[slow]和nums[fast]的大小
-// // 如果nums[slow] !== nums[fast]
-// // [nums[slow + 1], nums[fast]] = [nums[fast], nums[slow + 1]]
-// // slow = slow + 1
-
-// var removeDuplicates = function(nums) {
-//   let slow = 0;
-//   let fast = 0;
-//   while(fast < nums.length) {
-//       if(nums[slow] !== nums[fast]) {
-//         [nums[slow + 1], nums[fast]] = [nums[fast], nums[slow + 1]]
-//         slow = slow + 1
-//       }
-//       fast++
-//   }
-//   return slow + 1;
-// };
-
-// console.log(removeDuplicates([0,0,0,1,1,1,2,2,3,3,4])) // 
-
-function ListNode (val, next) {
-  this.val = val;
-  this.next = next === undefined ? null : next;
-}
-var a = new ListNode('a');
-var b = new ListNode('b', a);
-var c = new ListNode('c', b);
-var d = new ListNode('d', c);
-a.next = b;
-// d => c => b => a 
-//      ||        ||
-//      ||  = = = ||
-var hasCycle = function (head) {
-  if (head.next.next === head) return false;
-  let isCycle = false;
-  // 定义快慢指针
-  // 快指针走两步，慢指针走一步
-  // 当快指针等于慢指针的时候，说明有环
-  let slow = head;
-  let fast = head.next.next;
-  while(slow && slow.next && fast && fast.next && fast.next.next) {
-    if (slow !== fast) {
-      slow = slow.next;
-      fast = fast.next.next;
-    } else {
-      return true;
-    }
+const getTree = (arr) => {
+  let target = {};
+  for(let i = 0; i < arr.length; i++) {
+    let val = arr[i].id;
+    keys = val.split('-');
+    target = createObj(target, keys)
   }
-  return isCycle;
+  console.log('target', JSON.stringify(target, null, 2))
+  return target;
 }
-
-
-let head = {
-  val: 1,
-  next: {
-    val: 2,
-    next: {
-      val: 3,
-      next: {
-        val: 4,
-        next: {
-          val: 5,
-          next: null
-        }
+function createObj(target, keys) {
+  let pos = 0;
+  let obj = target;
+  let url = '';
+  while(pos < keys.length) {
+    let cur = keys[pos];
+    url = pos === 0 ? cur : `${url}-${cur}`
+    if(!obj[url]) {
+      obj[url] = {}
+    }
+    pos++;
+    obj = obj[url];
+  }
+  return target;
+}
+console.log('target', getTree(arr))
+// console.log(createObj({}, [ '1', '2', '3', '4' ]))
+// console.log('1-2-1-1'.split('-'))
+// 输出
+var obj ={
+  '1': {
+    '1-1': {},
+    '1-2': {
+      '1-2-1': {
+        '1-2-1-1': {}
       }
     }
+  },
+  '2': {
+    '2-1': {},
+    '2-2': {
+      '2-2-1': {}
+    }
+  },
+  '3': {
+    '3-1':{}
+  },
+  '4': {
+    '4-2': {
+      '4-2-1': {}
+    }
   }
 }
 
-console.log(JSON.stringify(hasCycle(d),null, 2))
-console.log(JSON.stringify(hasCycle(head),null, 2))
+// function mergeDeepList(list) {
+//   let map = {}
+//   let tree = [];
+//   for(let i = 0; i < list.length; i++) {
+//     let cur = list[i];
+//     map[cur.id] = list[i];
+//   }
+//   for(let j = 0; j < list.length; j++) {
+//     let cur = list[j];
+//     if(map[cur.pid]) {
+//       map[cur.pid].children = map[cur.pid].children || [];
+//       map[cur.pid].children.push(cur);
+//       delete cur.pid
+//     } else {
+//       tree.push(cur);
+//     }
+//   }
+//   console.log('list', JSON.stringify(tree, null, 2));
+// }
