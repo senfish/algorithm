@@ -20,6 +20,6 @@ var getRow = function(rowIndex) {
   return preValue;
 };
 
-console.log(getRow(4)) // [1,3,3,1]
+console.log(getRow(3)) // [1,3,3,1]
 console.log(getRow(0)) // [1]
 console.log(getRow(1)) // [1,1]
