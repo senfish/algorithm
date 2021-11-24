@@ -13,7 +13,8 @@
       ],
       // "program": "${workspaceFolder}/二分查找/704.二分查找.js"
       // "program": "${workspaceFolder}/数据结构/队列/循环队列.js"
-      "program": "${workspaceFolder}/算法笔记/第二周/641. 设计循环双端队列.js"
+      // "program": "${workspaceFolder}/算法笔记/第二周/641. 设计循环双端队列.js"
+      "program": "${workspaceFolder}/index.js"
     }
   ]
 }

@@ -1,79 +1,54 @@
-// 输入
-var arr = [
-  { id: '1'},{id: '1-1'},{id: '1-2' },{id: '1-3'},{id: '1-2-1'},{id: '1-2-1-1' },
-  { id: '3-1' },{ id: '4-2-1' }, {  id: '2' }, { id: '2-1' }, { id: '2-2-1' }
-]
+// https://leetcode-cn.com/problems/partition-list/
 
-const getTree = (arr) => {
-  let target = {};
-  for(let i = 0; i < arr.length; i++) {
-    let val = arr[i].id;
-    keys = val.split('-');
-    target = createObj(target, keys)
-  }
-  console.log('target', JSON.stringify(target, null, 2))
-  return target;
+function ListNode(val, next) {
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
 }
-function createObj(target, keys) {
-  let pos = 0;
-  let obj = target;
-  let url = '';
-  while(pos < keys.length) {
-    let cur = keys[pos];
-    url = pos === 0 ? cur : `${url}-${cur}`
-    if(!obj[url]) {
-      obj[url] = {}
+
+var partition = function (head, x) {
+  let  samll = new ListNode(0);
+  let  large = new ListNode(0);
+  let min =  samll;
+  let max =  large;
+  while(head) {
+    let temp = head.next;
+    if(head.val >= x) {
+      max.next = head;
+      max.next.next = null;
+      max = max.next;
+    } else {
+      min.next = head;
+      min.next.next = null;
+      min = min.next;
     }
-    pos++;
-    obj = obj[url];
+    head = temp;
   }
-  return target;
-}
-console.log('target', getTree(arr))
-// console.log(createObj({}, [ '1', '2', '3', '4' ]))
-// console.log('1-2-1-1'.split('-'))
-// 输出
-var obj ={
-  '1': {
-    '1-1': {},
-    '1-2': {
-      '1-2-1': {
-        '1-2-1-1': {}
+  // console.log('samll', JSON.stringify( samll, null, 2));
+  // console.log('min', JSON.stringify( min, null, 2));
+  // console.log('large', JSON.stringify( large, null, 2));
+  // console.log('max', JSON.stringify( max, null, 2));
+  min.next = large.next;
+  return samll.next;
+};
+
+let head = {
+  val: 1,
+  next: {
+    val: 4,
+    next: {
+      val: 3,
+      next: {
+        val: 2,
+        next: {
+          val: 5,
+          next: {
+            val: 2,
+            next: null
+          }
+        }
       }
     }
-  },
-  '2': {
-    '2-1': {},
-    '2-2': {
-      '2-2-1': {}
-    }
-  },
-  '3': {
-    '3-1':{}
-  },
-  '4': {
-    '4-2': {
-      '4-2-1': {}
-    }
   }
 }
 
-// function mergeDeepList(list) {
-//   let map = {}
-//   let tree = [];
-//   for(let i = 0; i < list.length; i++) {
-//     let cur = list[i];
-//     map[cur.id] = list[i];
-//   }
-//   for(let j = 0; j < list.length; j++) {
-//     let cur = list[j];
-//     if(map[cur.pid]) {
-//       map[cur.pid].children = map[cur.pid].children || [];
-//       map[cur.pid].children.push(cur);
-//       delete cur.pid
-//     } else {
-//       tree.push(cur);
-//     }
-//   }
-//   console.log('list', JSON.stringify(tree, null, 2));
-// }
+console.log(JSON.stringify(partition(head, 3), null, 2));

@@ -103,12 +103,10 @@ MyCircularDeque.prototype.isEmpty = function() {
 MyCircularDeque.prototype.isFull = function() {
   return this.count === this.arr.length;
 };
-["insertFront","deleteLast","getFront","insertLast","insertFront","getFront","getRear","getFront","getFront","getRear","insertLast"]
-[[7],[],[],[5],[0],[],[],[],[],[],[0]]
-[true,true,-1,true,true,0,5,0,0,5,false]
+
 var circularDeque = new MyCircularDeque(2)
 console.log(circularDeque.insertFront(7)) // true
-console.log(circularDeque.deleteLast()) // true
+console.log(circularDeque.getRear()) // true
 console.log(circularDeque.getFront()) // -1
 console.log(circularDeque.insertLast(5)) // true
 console.log(circularDeque.insertFront(0)) // true
