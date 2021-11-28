@@ -7,6 +7,13 @@
 
 ### 循环队列
 
+
+#### 普通队列
+[介绍](/普通队列.js)
+
+#### 循环队列
+
+[介绍](/循环队列.js)
 #### 循环队列如何判断为满
 https://blog.csdn.net/smile_zhangw/article/details/80894159
 
