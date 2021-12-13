@@ -36,3 +36,29 @@ for(let i = 0; i < n; ++i) { // 第二行
 **可以看出来，所有代码的执行时间 T(n) 与每行代码的执行次数成正比。** 所以，可以得知上面 `T(n) = O(2n + 2)`。
 
 > 大 O 时间复杂度实际上并不具体表示代码真正的执行时间，而是**表示代码执行时间随数据规模增长的变化趋势**，所以，也叫作**渐进时间复杂度**，简称**时间复杂度**。
+
+
+
+
+
+
+--prefix=/usr/share/nginx // 把nginx安装到哪个目录下
+--sbin-path=/usr/sbin/nginx // 可执行文件路径
+--modules-path=/usr/lib64/nginx/modules // 安装的额外模块路径
+--conf-path=/etc/nginx/nginx.conf // 配置文件路径
+--error-log-path=/var/log/nginx/error.log // 错误日志路径
+--http-log-path=/var/log/nginx/access.log // 普通日志路径
+--pid-path=/run/nginx.pid  // 进程id
+--lock-path=/run/lock/subsys/nginx // 枷锁文件
+
+--http-client-body-temp-path=/var/lib/nginx/tmp/client_body
+--http-proxy-temp-path=/var/lib/nginx/tmp/proxy
+--http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi
+--http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi
+--http-scgi-temp-path=/var/lib/nginx/tmp/scgi
+--user=nginx
+--group=nginx
+--with-file-aio
+--with-ipv6
+--with-http_ssl_module
+--with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_xslt_module=dynamic --with-http_image_filter_module=dynamic --with-http_sub_module --with-http_dav_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-http_degradation_module --with-http_slice_module --with-http_stub_status_module --with-http_perl_module=dynamic --with-http_auth_request_module --with-mail=dynamic --with-mail_ssl_module --with-pcre --with-pcre-jit --with-stream=dynamic --with-stream_ssl_module --with-debug --with-cc-opt='-O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection' --with-ld-opt='-Wl,-z,relro -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -Wl,-E'
