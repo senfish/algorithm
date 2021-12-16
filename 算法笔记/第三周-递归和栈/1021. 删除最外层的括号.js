@@ -1,8 +1,15 @@
+// https://leetcode-cn.com/problems/remove-outermost-parentheses/
+
+
 /**
  * @param {string} s
  * @return {string}
  */
-var removeOuterParentheses = function (s) {
+/**
+ * @param {string} s
+ * @return {string}
+ */
+ var removeOuterParentheses = function (s) {
   let index = 0;
   let arr = [];
   let stack = [];
